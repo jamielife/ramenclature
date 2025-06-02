@@ -13,6 +13,8 @@ export default defineConfig({
     base: 'ramenclature',
     integrations: [mdx(), sitemap()],
 
+    output: 'static',
+
     vite: {
       plugins: [tailwindcss()],
     },
