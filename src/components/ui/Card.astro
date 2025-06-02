@@ -27,7 +27,7 @@ if(image) optimizedImage = await getImage({ src: image, width: 500, height: 500 
                 <h4 class="font-bold text-xl m-4 text-white">{title}</h4>
             </div>        
             { optimizedImage && (
-                <Image src={optimizedImage.src} alt={`Bowl of ramen from ${title} (${id})`} width={500} height={500} class="!rounded-b-none" />
+                <Image src={optimizedImage.src} alt={`Bowl of ramen from ${title} (${id})`} width={500} height={500} format="webp" class="!rounded-b-none" />
             )}
             <div class="px-5 py-5">
                 <h5 class="text-xl">{id.charAt(0).toUpperCase() + id.slice(1)}</h5>
