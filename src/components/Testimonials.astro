@@ -1,0 +1,17 @@
+---
+import { Image } from 'astro:assets';
+import Testimonial from './ui/Testimonial.astro';
+---
+<div id="features" class="bg-gray-50 py-10">
+	<div class="max-w-7xl mx-auto px-4 py-12">
+		<p class="text-ramen-red text-center text-2xl font-bold">Testimonials</p>
+		<h2 class="text-4xl sm:text-5xl font-semibold tracking-tight pb-10 text-gray-800 text-center">
+			What people are saying!
+		</h2>
+		
+		<Testimonial name="Michael Jordan" title="CEO of Space" image="/images/man1.png"   quote="Well, I'll be goodness gracious me oh my!" />
+		<Testimonial name="Taylor Swift"   title="CEO of Life"  image="/images/woman1.png" quote="Holy mackerel!" class="ml-auto mr-4" />
+		<Testimonial name="Michael Jordan" title="CEO of Space" image="/images/man1.png"   quote="Me again! Wowie, wow, wow!" />
+		
+	</div>
+</div>	

@@ -1,0 +1,217 @@
+/*
+  The CSS in this style tag is based off of Bear Blog's default CSS.
+  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
+  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+ */
+
+ @import "tailwindcss";
+
+:root {
+	--ramen-brown: rgba(68, 36, 21, 1);
+	--ramen-red: rgba(205, 40, 28, 1);
+	--accent: rgba(68, 36, 21, 1);
+	--accent-dark: rgba(68, 36, 21, 1);
+	--black: 15, 18, 25;
+	--gray: 96, 115, 159;
+	--gray-light: 229, 233, 240;
+	--gray-dark: 34, 41, 57;
+	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
+	--box-shadow:
+		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
+		0 16px 32px rgba(var(--gray), 33%);
+}
+@font-face {
+	font-family: 'Montserrat';
+	src: url('/fonts/Montserrat-Regular.ttf') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Montserrat';
+	src: url('/fonts/Montserrat-Bold.ttf') format('woff');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+body {
+	font-family: 'Montserrat', sans-serif;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	background: linear-gradient(var(--gray-gradient)) no-repeat;
+	background-size: 100% 600px;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	color: rgb(var(--gray-dark));
+	font-size: 20px;
+	line-height: 1.7;
+}
+
+strong,
+b {
+	font-weight: 700;
+}
+
+main a{text-decoration: underline}
+main a:hover{text-decoration: none}
+
+p {
+	margin-bottom: 1em;
+}
+textarea {
+	width: 100%;
+	font-size: 16px;
+}
+input {
+	font-size: 16px;
+}
+table {
+	width: 100%;
+}
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+code {
+	padding: 2px 5px;
+	background-color: rgb(var(--gray-light));
+	border-radius: 2px;
+}
+pre {
+	padding: 1.5em;
+	border-radius: 8px;
+}
+pre > code {
+	all: unset;
+}
+blockquote {
+	border-left: 4px solid var(--accent);
+	padding: 0 0 0 20px;
+	margin: 0px;
+	font-size: 1.333em;
+}
+hr {
+	border: none;
+	border-top: 1px solid rgb(var(--gray-light));
+}
+
+@theme {
+	--color-ramen-brown: var(--ramen-brown);
+	--color-ramen-red: var(--ramen-red);
+
+	--animate-spin: spin 6s linear infinite;
+	--animate-spin-slow: spin 8s linear infinite;
+	--animate-spin-slower: spin 15s linear infinite;
+	--animate-spin-slowest: spin 25s linear infinite;
+	--animate-shake: shake 5s linear infinite;
+	--animate-shake-slower: shake 10s linear infinite;
+	--animate-float: float 3s linear infinite;
+	--animate-float-slow: float 6s linear infinite;
+	--animate-float-slower: float 10s linear infinite;
+	--animate-fill-blue1: spin .1s 2s,	fill-blue .1s 	  	linear 1 forwards;
+	--animate-fill-blue2: spin .1s 2s, 	fill-blue .1s .5s 	linear 1 forwards;
+	--animate-fill-blue3: spin .1s 2s,	fill-blue .1s 1s 	linear 1 forwards;
+	--animate-fill-blue4: spin .1s 2s,  fill-blue .1s 1.5s 	linear 1 forwards;
+	--animate-fill-blue5: spin .1s 2s,	fill-blue .1s 2s 	linear 1 forwards;
+	--animate-grow: grow 3s linear 1 forwards, fill-blue 3s linear 1 forwards;
+
+	--animate-noodle: 	 	noodle 		3s ease-in-out infinite;
+	--animate-pie: 	  	 	pie 	 	8s linear infinite;
+	--animate-letter: 	 	letter 		8s linear infinite;
+	--animate-pinch-left:	pinch-left 	8s linear infinite;
+	--animate-pinch-right:	pinch-right 	8s linear infinite;	
+
+	@keyframes noodle {
+		0% 	 { transform: translateY(0);    }
+		10%  { transform: translateY(-10px); }
+		50%  { transform: translateY(4px);  }
+		85%  { transform: translateY(-4px); }
+		100% { transform: translateY(0);	}
+	}	
+
+
+	@keyframes shake {
+		0% 	 { transform: translateX(0);    }
+		25%  { transform: translateX(-20px);    }
+		50%  { transform: translateX(0);    }
+		75%  { transform: translateX(20px);    }
+		100% { transform: translateX(0);	}
+	}
+
+	@keyframes float {
+		0% 	 { transform: translateY(0);    }
+		25%  { transform: translateY(-5px);    }
+		50%  { transform: translateY(0);    }
+		75%  { transform: translateY(6px);    }
+		100% { transform: translateY(0);	}
+	}	
+
+	@keyframes fill-blue {
+		0% 	 { fill: white; }
+		100%  { fill: var(--htmyell-blue); stroke: none; }
+	}
+
+	@keyframes pie {
+		0% 	 { transform: translateX(0) 	translateY(0px);}
+		25%  { transform: translateX(-26px) translateY(8px);}
+		50%  { transform: translateX(0) 	translateY(0px);}
+		75%  { transform: translateX(20px) 	translateY(-8px);}
+		100% { transform: translateX(0) 	translateY(0px);}
+	}
+
+	@keyframes letter {
+		0% 	 { transform: translateX(0) 	translateY(0px);}
+		25%  { transform: translateX(-15px) translateY(15px);}
+		50%  { transform: translateX(0) 	translateY(0px);}
+		75%  { transform: translateX(15px) 	translateY(-15px);}
+		100% { transform: translateX(0) 	translateY(0px);}
+	}
+
+	@keyframes pinch-left {
+		0% 	 { transform: rotateZ(0deg) }
+		50% { transform: rotateZ(-2deg) translateX(-10px) translateY(-10px);}
+		100% { transform: rotateZ(0deg);}
+	}
+
+	@keyframes pinch-right {
+		0% 	 { transform: rotateZ(0deg) }
+		50% { transform: rotateZ(5deg) translateX(14px) translateY(-10px);}
+		100% { transform: rotateZ(0deg);}
+	}
+
+	@keyframes grow {
+		0% 	 { transform: translateY(0);    }
+		100%  { transform: translateY(-15px);    }
+	}
+
+
+}
+
+@media (max-width: 720px) {
+	body {
+		font-size: 18px;
+	}
+	main {
+		padding: 1em;
+	}
+}
+
+.sr-only {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+	clip: rect(1px 1px 1px 1px);
+	/* maybe deprecated but we need to support legacy browsers */
+	clip: rect(1px, 1px, 1px, 1px);
+	/* modern browsers, clip-path works inwards from each corner */
+	clip-path: inset(50%);
+	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
+	white-space: nowrap;
+}

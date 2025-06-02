@@ -1,0 +1,21 @@
+---
+import { SITE_DESCRIPTION } from '../consts';
+import Button from './ui/Button.astro';
+import Featured from './ui/FeaturedImage.astro';
+---
+<div class="max-w-7xl mx-auto bg-white my-4 lg:my-12 px-4 mb-12 lg:mb-12">
+    <div class="mx-auto flex lg:mx-0 flex-col-reverse md:flex-row gap-12 items-center">
+        <div class="flex-1 flex flex-col justify-center">
+            <div>
+                <h1 class="text-4xl sm:text-5xl font-semibold tracking-tight lg:text-6xl text-balance">{SITE_DESCRIPTION}</h1>
+                <p class="mt-6 text-lg/8 text-gray-600 text-balance">
+                    Craving the perfect bowl? Ramenclature matches you with your ideal bowl of ramen in seconds — from spicy miso to rich tonkotsu, it learns your taste and finds the ultimate slurp-worthy spot.
+                </p>     
+                <Button type="solid"><a href="#products">Get Started</a></Button>               
+            </div>
+        </div>
+        <div class="flex-1 overflow-hidden w-full sm:w-2/3">
+            <Featured />
+        </div>
+    </div>
+</div>  

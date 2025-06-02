@@ -1,0 +1,80 @@
+---
+import Banner from "./Banner.astro";
+import Navigation from "./Navigation.astro";
+import Button from "./ui/Button.astro";
+import Feature from "./Feature.astro";
+---
+<div class="bg-white">
+    <Banner />    
+    <header>
+        <Navigation />
+        <Feature />
+    </header>
+</div>
+
+<script is:inline>
+    // DOM elements
+    const mobileMenuButton = document.querySelector('[aria-label="Global"]').querySelector('button');
+    const mobileMenu = document.querySelector('[role="dialog"]');
+    const closeMenuButton = mobileMenu.querySelector('button');
+    const backdrop = mobileMenu.querySelector('.fixed.inset-0');
+    const banner = document.querySelector('[role="banner"]');
+    const dismissButton = banner.querySelector('#dismiss-banner');
+    const header = document.querySelector('header');
+    const navLinks = document.querySelectorAll('a[href^="#"]');
+
+    // Toggle menu visibility
+    function toggleMenu(show) {
+        if (show) {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+        } else {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+    }
+
+    // Smooth scroll function
+    function smoothScroll(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return; // Ignore empty anchors
+        
+        const targetElement = document.querySelector(targetId);
+        if (!targetElement) return;
+
+        // Close mobile menu if open
+        if (!mobileMenu.classList.contains('hidden')) {
+            toggleMenu(false);
+        }
+
+        // Scroll to element with header offset
+        window.scrollTo({
+            top: targetElement.offsetTop,
+            behavior: 'smooth'
+        });
+    }
+
+    // Event listeners
+    mobileMenuButton.addEventListener('click', () => toggleMenu(true));
+    closeMenuButton.addEventListener('click', () => toggleMenu(false));
+    backdrop.addEventListener('click', () => toggleMenu(false)); // Close menu when clicking backdrop
+    document.addEventListener('keydown', (e) => { // close menu on escape key
+        if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+            toggleMenu(false);
+        }
+    });
+
+    // Add smooth scroll to all navigation links
+    navLinks.forEach(link => link.addEventListener('click', smoothScroll));
+
+    // Banner dismiss handler
+    if (banner && dismissButton) {
+        dismissButton.addEventListener('click', () => {
+            banner.remove();
+            //header.classList.remove('top-30', 'sm:top-24', 'md:top-14');
+            //header.classList.add('top-0');
+        });
+    }
+</script>
+  

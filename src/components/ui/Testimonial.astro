@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets';
+const { name, title, image, quote, class: className } = Astro.props;
+---
+<div class={`mx-8 my-12 max-w-10/12 w-4/5 ${className}`}>
+    <div class="bg-white rounded px-6 py-4 drop-shadow-xl left-4">				
+        <blockquote class="text-sm mb-4">
+            {quote}
+        </blockquote>
+        
+        <div class="flex gap-2 items-center mt-4">
+            <Image 
+                src={image}
+                alt={`Professional headshot of ${name} smiling`}
+                width={80}
+                height={80}
+                class="flex-0 !rounded-full"
+            />
+            <p class="flex-1">
+                <strong class="text-sm">{name}</strong>
+                <span class="text-xs block">{title}</span>
+            </p>
+        </div>
+    </div>
+</div>	

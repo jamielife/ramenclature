@@ -1,0 +1,75 @@
+---
+import Card from "./ui/Card.astro";
+import { API_URL } from "../consts";
+const url = new URL(API_URL, Astro.url);
+
+const categories = [ "Tonkotsu", "Shoyu", "Miso", "Shio", "Tsukemen", "Curry", "Vegiterian", "Vegan", "Instant", "Soup", "Soba", "Udon", "Yakisoba", "Miso Butter Corn", "Kitakata", "Black Garlic", "Spicy", "Kimchi" ];
+
+const getRandomCategory = () => {
+    const randomIndex = Math.floor(Math.random() * categories.length);
+    return categories[randomIndex];
+};
+
+// Sleep function for testing delay
+const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+interface RamenSpot {
+    id: string;
+    name: string;
+    photos: {
+        name: string;
+        width: number;
+        height: number;
+        authorId: string;
+        url: string;
+    }[];
+}
+
+interface RamenData {
+    shops: RamenSpot[];
+}
+
+let data: RamenData | null = null;
+
+try {
+    await sleep(300); // 2 second delay
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    data = await response.json();
+    console.log(data?.shops[0].photos);
+
+    // {
+    //     name: 'yoshimuraya-001.jpg',
+    //     width: 1200,
+    //     height: 900,
+    //     authorId: 'yusukebe',
+    //     url: 'https://ramen-api.dev/images/yoshimuraya/yoshimuraya-001.jpg'
+    // }
+
+} catch (error) {
+    console.error('Error fetching data:', error);
+    data = null;
+}
+---
+
+<div class="max-w-7xl mx-auto px-4 py-12">
+    {data ? (
+        <div class="flex flex-col sm:flex-row gap-8 items-center sm:items-stretch">
+            {data.shops?.map((item: RamenSpot) => (
+                <Card id={item.id} image={item.photos[0].url} category={getRandomCategory()} title={item.name} />
+            ))}
+        </div>
+    ) : (
+        <div class="text-center py-4">
+            <div class="text-gray-400 text-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                </svg>
+                <h3 class="font-semibold">No Ramen Spots Found</h3>
+                <p class="text-sm text-gray-500 mt-2">Check back later for new ramen spots in your area!</p>
+            </div>
+        </div>
+    )}
+</div>
