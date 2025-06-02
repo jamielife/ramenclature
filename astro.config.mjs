@@ -9,8 +9,7 @@ import node from '@astrojs/node';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://jamielife.github.io',
-    base: 'ramenclature',
+    site: 'https://ramenclature.htmyell.xyz/',
     integrations: [mdx(), sitemap()],
 
     vite: {
