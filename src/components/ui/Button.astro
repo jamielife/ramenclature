@@ -1,20 +1,20 @@
 ---
-const { type, class: className, arrow=true } = Astro.props;
+const { type, href, class: className, arrow=true } = Astro.props;
 ---
 {type === 'solid' ? (
-    <button class={`${className} rounded-md transition-all duration-300 cursor-pointer bg-ramen-red text-white w-auto px-6 py-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 hover:bg-gray-100 hover:text-ramen-red`}>
-        <slot /> {arrow && <span class="pl-2" aria-hidden="true">→</span>}
-    </button>  
+    <a href={href} class={`${className} block rounded-md transition-all duration-300 cursor-pointer bg-ramen-red text-white w-fit px-6 py-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 hover:bg-gray-100 hover:text-ramen-red`}>
+       <slot /> {arrow && <span class="pl-2" aria-hidden="true">→</span>}
+    </a>  
 ) : type === 'inverse' ? (
-    <button class={`${className} rounded-md transition-all duration-300 cursor-pointer text-ramen-red bg-white w-auto px-6 py-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 hover:bg-ramen-red hover:text-white`}>
+    <a href={href} class={`${className} block rounded-md transition-all duration-300 cursor-pointer text-ramen-red bg-white w-fit px-6 py-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 hover:bg-ramen-red hover:text-white`}>
         <slot /> {arrow && <span class="pl-2" aria-hidden="true">→</span>}
-    </button>  
+    </a>  
 ) : type === 'solid-thin' ? (
-    <button class={`${className} rounded-md transition-all duration-300 cursor-pointer bg-ramen-red text-white w-auto px-5 py-1.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 hover:bg-gray-100 hover:text-ramen-red`}>
+    <a href={href} class={`${className} block rounded-md transition-all duration-300 cursor-pointer bg-ramen-red text-white w-fit px-5 py-1.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 hover:bg-gray-100 hover:text-ramen-red`}>
         <slot /> {arrow && <span class="pl-2" aria-hidden="true">→</span>}
-    </button>  
+    </a>  
 ) : (    
-    <a href="#" class={`${className} text-sm/6 w-auto font-semibold text-ramen-red hover:no-underline`}>
+    <a href={href} class={`${className} block text-sm/6 w-fit font-semibold text-ramen-red hover:no-underline`}>
         <slot /> {arrow && <span aria-hidden="true">→</span>}
     </a>
 )}
