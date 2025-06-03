@@ -34,7 +34,7 @@ let data: RamenData | null = null;
 console.log("TRYING API CALL #####################");
 
 try {
-    await sleep(3000); // 2 second delay
+    //await sleep(3000); // 2 second delay
     const response = await fetch(url);
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
