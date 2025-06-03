@@ -21,12 +21,12 @@ import Button from './ui/Button.astro';
 		</button>
 	</div>
 
-	<div class="hidden lg:flex lg:flex-1 lg:items-center lg:mx-12 lg:gap-x-6 xl:gap-x-12 xl:mx-0">
-		<a href="#products" class="text-md text-ramen-brown hover:text-ramen-red">Product</a>
-		<a href="#features" class="text-md text-ramen-brown hover:text-ramen-red">Features</a>
-		<a href="#marketplace" class="text-md text-ramen-brown hover:text-ramen-red">Marketplace</a>
-		<a href="#company" class="text-md text-ramen-brown hover:text-ramen-red">Company</a>
-	</div>
+	<ul class="hidden lg:flex lg:flex-1 lg:items-center lg:mx-12 lg:gap-x-6 xl:gap-x-12 xl:mx-0 !list-none p-0 m-0">
+		<li><a href="#products" class="text-md text-ramen-brown hover:text-ramen-red">Product</a></li>
+		<li><a href="#features" class="text-md text-ramen-brown hover:text-ramen-red">Features</a></li>
+		<li><a href="#marketplace" class="text-md text-ramen-brown hover:text-ramen-red">Marketplace</a></li>
+		<li><a href="#company" class="text-md text-ramen-brown hover:text-ramen-red">Company</a></li>
+	</ul>
 
 	<div class="hidden lg:flex lg:items-center lg:justify-end flex-1">
 		<Button type="solid-thin" href="#login" arrow={false}>Log in
@@ -54,12 +54,12 @@ import Button from './ui/Button.astro';
 
         <div class="mt-6 flow-root">
             <div class="-my-6 divide-y divide-gray-500/10">
-                <div class="space-y-2 py-6">
-                    <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-ramen-brown hover:bg-gray-50">Product</a>
-                    <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-ramen-brown hover:bg-gray-50">Features</a>
-                    <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-ramen-brown hover:bg-gray-50">Marketplace</a>
-                    <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-ramen-brown hover:bg-gray-50">Company</a>
-                </div>
+                <ul class="space-y-2 py-6 !list-none p-0 m-0">
+                    <li><a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-ramen-brown hover:bg-gray-50">Product</a></li>
+                    <li><a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-ramen-brown hover:bg-gray-50">Features</a></li>
+                    <li><a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-ramen-brown hover:bg-gray-50">Marketplace</a></li>
+                    <li><a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-ramen-brown hover:bg-gray-50">Company</a></li>
+                </ul>
                 <div class="py-6">
                      <Button type="solid-thin" href="#login" arrow={false}>Log in</Button>
                 </div>
