@@ -32,7 +32,7 @@ interface RamenData {
 let data: RamenData | null = null;
 
 try {
-    //await sleep(3000); // 2 second delay
+    //await sleep(300); // 2 second delay
     const response = await fetch(url);
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -46,11 +46,11 @@ try {
 
 <div class="max-w-7xl mx-auto px-4 py-12">
     {data ? (
-        <div class="flex flex-col sm:flex-row gap-8 items-center sm:items-stretch">
+        <ul class="flex flex-col sm:flex-row gap-8 items-center sm:items-stretch !list-none p-0 m-0">
             {data.shops?.map((item: RamenSpot) => (
                 <Card id={item.id} image={item.photos[0].url} category={getRandomCategory()} title={item.name} />
             ))}
-        </div>
+        </ul>
     ) : (
         <div class="text-center py-4">
             <div class="text-gray-400 text-xl">
@@ -63,3 +63,17 @@ try {
         </div>
     )}
 </div>
+
+<script is:inline>
+    const cards = document.querySelectorAll('.card');  
+    Array.prototype.forEach.call(cards, card => {  
+        let down, up, link = card.querySelector('h3 a');
+        card.onmousedown = () => down = +new Date();
+        card.onmouseup = () => {
+            up = +new Date();
+            if ((up - down) < 200) {
+                link.click();
+            }
+        }
+    });
+</script>

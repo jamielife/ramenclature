@@ -9,11 +9,11 @@ import Card from "./ui/Card.astro";
         <h2 class="text-4xl sm:text-5xl font-semibold tracking-tight pb-10 text-gray-800 text-center">Trending Ramen Spots</h2>
         <p class="max-w-4xl mx-auto text-center text-gray-500">Discover what everyone's slurping about! Our trending ramen spots showcase the hottest bowls in town — from cult-favorite shops to hidden gems blowing up with rave reviews. These are the must-try bowls foodies can’t stop talking about.</p>
         <RamenCards server:defer>
-            <div class="flex flex-col sm:flex-row gap-8 items-center sm:items-stretch px-4 py-12" slot="fallback">
+            <ul class="flex flex-col sm:flex-row gap-8 items-center sm:items-stretch px-4 py-12 list-none" slot="fallback">
                 <Card loading />
                 <Card loading />
                 <Card loading />
-            </div>
+            </ul>
         </RamenCards>
     </div>
 </main> 

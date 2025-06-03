@@ -4,7 +4,7 @@ import { getImage } from "astro:assets";
 
 const { id, image, category, title, loading = false } = Astro.props;
 ---
-<div class={`relative rounded-2xl max-w-sm mb-4 overflow-hidden shadow-lg inset-shadow-lg inset-shadow-black w-full ${loading ? 'animate-pulse' : ''}`}>
+<li class={`card relative rounded-2xl max-w-sm mb-4 overflow-hidden shadow-md inset-shadow-md inset-shadow-black w-full cursor-pointer hover:scale-105 transition-all hover:shadow-xl/10 hover:shadow-ramen-red hover:inset-shadow-ramen-red duration-300 ${loading ? 'animate-pulse' : ''}`}>
     { loading ? (
         <div class="h-48 bg-gray-200"></div>
         <div class="px-6 pt-4">
@@ -15,7 +15,9 @@ const { id, image, category, title, loading = false } = Astro.props;
         </div>
     ) : (
         <div class="absolute inset-0 z-10 w-full h-1/4 mx-auto " style="background: linear-gradient(180deg, rgba(0,0,0,.75) 0%, rgba(0,0,0,0) 100%);">
-            <h3 class="font-bold text-xl m-4 text-white">{title}</h3>
+            <h3 class="font-bold text-xl m-4 text-white">
+                <a class="!no-underline" href={`#${title}`}>{title}</a>
+            </h3>
         </div>        
         <img src={image} alt={`Bowl of ramen from ${title} (${id})`} width={500} height={500} class="!rounded-b-none" />
         <div class="px-5 py-5">
@@ -23,4 +25,4 @@ const { id, image, category, title, loading = false } = Astro.props;
             <span class="text-gray-500 text-sm">{category}</span>
         </div>
     )}
-</div>
+</li>
