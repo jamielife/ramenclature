@@ -19,7 +19,7 @@ const { id, image, category, title, loading = false } = Astro.props;
         </div>        
         <img src={image} alt={`Bowl of ramen from ${title} (${id})`} width={500} height={500} class="!rounded-b-none" />
         <div class="px-5 py-5">
-            <h5 class="text-xl">{id.charAt(0).toUpperCase() + id.slice(1)}</h5>
+            <h4 class="text-xl">{id.charAt(0).toUpperCase() + id.slice(1)}</h4>
             <span class="text-gray-500 text-sm">{category}</span>
         </div>
     )}
