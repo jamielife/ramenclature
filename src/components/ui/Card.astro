@@ -15,7 +15,7 @@ const { id, image, category, title, loading = false } = Astro.props;
         </div>
     ) : (
         <div class="absolute inset-0 z-10 w-full h-1/4 mx-auto " style="background: linear-gradient(180deg, rgba(0,0,0,.75) 0%, rgba(0,0,0,0) 100%);">
-            <h4 class="font-bold text-xl m-4 text-white">{title}</h4>
+            <h3 class="font-bold text-xl m-4 text-white">{title}</h3>
         </div>        
         <img src={image} alt={`Bowl of ramen from ${title} (${id})`} width={500} height={500} class="!rounded-b-none" />
         <div class="px-5 py-5">
@@ -24,4 +24,3 @@ const { id, image, category, title, loading = false } = Astro.props;
         </div>
     )}
 </div>
-
