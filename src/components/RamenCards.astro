@@ -31,8 +31,6 @@ interface RamenData {
 
 let data: RamenData | null = null;
 
-console.log("TRYING API CALL #####################");
-
 try {
     //await sleep(3000); // 2 second delay
     const response = await fetch(url);
@@ -44,8 +42,6 @@ try {
     console.error('Error fetching data:', error);
     data = null;
 }
-console.log(data);
-console.log("API CALL COMPLETED #####################");
 ---
 
 <div class="max-w-7xl mx-auto px-4 py-12">
