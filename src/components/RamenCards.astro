@@ -32,7 +32,7 @@ interface RamenData {
 let data: RamenData | null = null;
 
 try {
-    //await sleep(300); // 2 second delay
+    await sleep(5000); // 2 second delay
     const response = await fetch(url);
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
